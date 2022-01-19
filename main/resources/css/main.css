@@ -1,0 +1,315 @@
+* {
+	color: #3e3e3e;
+	font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	font-size: 18px;
+}
+
+input[type=text] {
+	width: 100%;
+	padding: 6px 12px;
+	font-size: 1em;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	outline: none;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.delete {
+	color: red;
+}
+
+.delete:hover {
+	text-decoration: underline;
+}
+
+#container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+h2 {
+	font-size: 1.1em;
+	margin-bottom: 1.6em;
+	padding-bottom: 9px;
+	border-bottom: 1px solid #ddd;
+}
+
+.button {
+	background-color: #FF9E00;
+	border-style: none;
+	border-radius: 3px;
+	cursor: pointer;
+	line-height: 1.2em;
+	padding: 1em;
+	color: #fff;
+	font-weight: bold;
+	font-size: 1em;
+	margin: 0 auto;
+	margin-top: 1.3em;
+	display: block;
+	width: 150px;
+}
+
+.button:hover {
+	background-color: #FF8800;
+}
+
+.button-info {
+	background-color: #5bc0de;
+}
+.button-info:hover {
+	background-color: #31b0d5;
+}
+
+.button-danger {
+	background-color: #d9534f;
+}
+.button-danger:hover {
+	background-color: #c9302c;
+}
+
+table {
+	width: 100%;
+}
+
+table th,
+table td {
+	padding: 1em;
+	border: 1px solid #888;
+	font-size: 0.8em;
+}
+
+table th {
+	background-color: #3e3e3e;
+	color: #fff;
+	font-weight: normal;
+	padding: 18px;
+	font-size: 16px;
+}
+
+table td {
+	text-align: center;
+}
+
+header {
+	height: 100px;
+}
+
+header .title {
+	float: left;
+	width: 50%;
+	height: 100px;
+	text-align: center;
+}
+
+header .title h1 {
+	font-size: 1.6em;
+	line-height: 100px;
+}
+
+header .title h1 img {
+}
+
+header .search {
+	position: relative;
+	float: left;
+	width: 45%;
+	height: 100px;
+}
+
+header .search p {
+	float: left;
+	position: absolute;
+	height: 40px;
+	top: 50%;
+	margin-top: -20px;
+}
+
+header .search p.keyword {
+	width: 85%;
+	border: 1px solid #3e3e3e;
+	border-right: none;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	padding: 10px;
+}
+
+header .search p.keyword input {
+	width: 100%;
+	height: 100%;
+	text-indent: 5px;
+	border: none;
+	transition: none;
+	padding: initial;
+	font-size: initial;
+	box-shadow: initial;
+}
+
+header .search p.submit {
+	width: 15%;
+	left: 85%;
+	text-align: center;
+	border: 1px solid #3e3e3e;
+	border-left: none;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background-color: #3e3e3e;
+}
+
+header .search p.submit input {
+	border: none;
+	background: none;
+	color: #fff;
+	height: 100%;
+	font-size: 0.9em;
+	width: 100%;
+}
+
+
+#menu {
+	/*background-color: #3e3e3e;*/
+	border: 1px solid #3e3e3e;
+	/*border-bottom: 1px solid #3e3e3e;*/
+	margin-bottom: 30px;
+}
+
+#menu ul {
+	/*margin: 0 10%;
+	border-left: 1px solid #fff;*/
+}
+
+#menu ul li {
+	float: left;
+	width: 50%;
+	text-align: center;
+	line-height: 3em;
+	border-right: 1px solid #3e3e3e;
+}
+
+#menu ul li:last-child {
+	border-right: none;
+}
+
+#menu ul li a {
+	display: block;
+	color: #3e3e3e;
+	text-decoration: none;
+}
+
+#menu ul li a:hover,
+#menu ul li.active a {
+	color: #fff;
+	background-color: #3e3e3e;
+}
+
+#main {
+	margin: 25px 10%;
+	min-height: 300px;
+}
+
+#insert, #update,
+#detail, #delete,
+#cart {
+	width: 600px;
+	margin: 0 auto;
+}
+
+#insert th, #delete th,
+#cart th {
+	width: 150px;
+}
+
+#detail {
+	text-align: center;
+}
+
+#detail table,
+#cart table,
+#buyConfirm table {
+	margin-top: 30px;
+}
+#delete table {
+	margin-bottom: 30px;
+}
+
+#showCart .button {
+	float: right;
+}
+
+#showCart .button {
+	float: right;
+}
+
+.sum {
+	text-align: right;
+	font-size: 1.6em;
+	margin-top: 1em
+}
+
+footer {
+	background-color: #3e3e3e;
+	padding: 25px 10%;
+	position: fixed;
+	bottom: 0;
+	width: 1000px;
+}
+
+footer * {
+	color: #fff;
+}
+
+footer .copyright {
+	margin-top: 25px;
+	text-align: center;
+}
+
+.pagecount{
+    text-align: center;
+    margin-bottom: 5px;
+    padding:15px 15px 20px 0;
+}
+.pagecount span{
+    display: inline-block;
+    background: #ddd;
+    margin:0 0 0 5px;
+    width:40px;
+    text-align: center;
+    padding:2px 8px 2px 8px;
+    border:1px solid #eee;
+    color: #666;
+}
+.pagecount span a{
+    color:#333;
+}
+.pagecount span a:hover{
+    text-decoration: underline;
+}
+
+
+

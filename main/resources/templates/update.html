@@ -1,0 +1,104 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>学生リスト</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/validationEngine.jquery.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/languages/jquery.validationEngine-ja.js"
+	type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.validationEngine.js" type="text/javascript"
+	charset="utf-8"></script>
+<script th:inline="javascript" src="js/update.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(
+			function($) {
+				jQuery("form").validationEngine({
+					promptPosition : "inline"
+				});
+
+				$("td input").each(
+						function() {
+							$(this).closest('td').prepend(
+									'<div class="error-message" id="error-'
+											+ $(this)[0].name + '"></div>');
+
+							$(this).attr('data-prompt-target',
+									'error-' + $(this)[0].name);
+
+							console.log($(this));
+							console.log($(this)[0].name);
+						});
+			});
+</script>
+</head>
+<body>
+	<form action="#" id="updform" method="post">
+		<p th:text="#{msg0002}"></p>
+		<table border="1">
+			<tr>
+				<th>id</th>
+				<td>[[${studentEntity.id}]]<input type="hidden" name="id"
+					th:value="${studentEntity.id}"></td>
+			</tr>
+			<tr>
+				<th>name</th>
+				<td><input type="text" name="name"
+					th:value="${studentEntity.name}" class="validate[required]"
+					placeholder="nameは必須項目です"></input></td>
+			</tr>
+			<tr>
+				<th>sex</th>
+				<td>  
+					<div th:each="item : ${mapSex}">
+						<input type="radio" name="sex" th:text="${item.value}"
+							th:value="${item.key}" th:field="${studentEntity.sex}">
+					</div>
+					 <!--<select name="sex">
+						<option th:each="item : ${mapSex}" th:value="${item.key}"
+							th:text="${item.value}"
+							th:selected="${item.key} == ${studentEntity.sex}"></option>
+				</select>-->
+
+				</td>
+			</tr>
+			<tr>
+				<th>class</th>
+				<td><select name="classx">
+						<option th:each="item : ${mapClass}" th:value="${item.key}"
+							th:text="${item.value}"
+							th:selected="${item.key} == ${studentEntity.classx}"></option>
+				</select></td>
+			</tr>
+			<tr>
+				<th>sansuwu</th>
+				<td><input type="text" name="sansuwu"
+					th:value="${studentEntity.sansuwu}"
+					class="validate[required,custom[number]]" placeholder="数字を入力してください"></input></td>
+			</tr>
+			<tr>
+				<th>kokugo</th>
+				<td><input type="text" name="kokugo"
+					th:value="${studentEntity.kokugo}"
+					class="validate[required,custom[number]]" placeholder="数字を入力してください"></input></td>
+			</tr>
+			<tr>
+				<th>adress</th>
+				<td><input type="text" name="adress"
+					th:value="${studentEntity.adress}" class="validate[required]"
+					placeholder="adressは必須項目です"></input></td>
+			</tr>
+			<tr>
+				<th>birthday</th>
+				<td><input type="date" name="birthday"
+					th:value="${studentEntity.birthday}"></input></td>
+			</tr>
+			<tr>
+				<th>更新ボタン</th>
+				<td><input type="submit" value="更新"></input></td>
+		</table>
+	</form>
+	<br>
+</body>
+</html>

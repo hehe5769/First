@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>学生リスト</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/index.js"></script>
+</head>
+<body>
+	<div id="container">
+		<header class="clearfix">
+			<div class="title">
+				<h1>研修システム</h1>
+			</div>
+		</header>
+		<a href="/insert">学生新規登録</a>
+		<table border="1" id="listtbl">
+			<tr id="listtr">
+				<th>id</th>
+				<th>name</th>
+				<th>sex</th>
+				<th>classx</th>
+				<th>sansuwu</th>
+				<th>kokugo</th>
+				<th>adress</th>
+				<th>birthday</th>
+				<th>TOUROKUBI</th>
+				<th>KOUSINNBI</th>
+				<th>編集</th>
+			</tr>
+		</table>
+		<div>
+			<ul class="theme_body"></ul>
+		</div>
+		<div id="pagecount" class="pagecount"></div>
+		<br>
+	</div>
+</body>
+</html>

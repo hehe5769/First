@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.csii.repository.StudentRepository">
+
+	<resultMap id="studentResultMap"
+		type="jp.csii.entity.StudentView">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="sex" column="sex" />
+		<result property="classx" column="classx" />
+		<result property="sansuwu" column="sansuwu" />
+		<result property="kokugo" column="kokugo" />
+		<result property="adress" column="adress" />
+		<result property="birthday" column="birthday" />
+		<result property="TOUROKUBI" column="TOUROKUBI" />
+		<result property="KOUSINNBI" column="KOUSINNBI" />
+	</resultMap>
+
+	<select id="findAll" resultMap="studentResultMap">
+		SELECT A.id,
+		A.name,
+		B.sex,
+		CONCAT(D.grade,C.name) classx,
+		A.sansuwu,
+		A.kokugo,
+		A.adress,
+		A.birthday,
+		A.TOUROKUBI,
+		A.KOUSINNBI
+		FROM ((t_student A LEFT
+		JOIN m_sex B ON A.sex = B.id) LEFT JOIN m_class C on A.classx = C.id)
+		LEFT JOIN m_grade D ON C.grade_id = D.id
+	</select>
+	<select id="findById" resultType="jp.csii.entity.StudentEntity">
+		SELECT * FROM t_student WHERE
+		id = '${id}'
+	</select>
+	<delete id="deleteById" parameterType="String">
+	<![CDATA[
+	  DELETE FROM t_student WHERE id = '${id}'
+	]]>
+	</delete>
+	<update id="update" parameterType="jp.csii.entity.StudentEntity">
+	<![CDATA[
+	  UPDATE t_student SET name = #{name}, 
+	                       sex = #{sex},
+	                       classx = #{classx},
+	                       sansuwu = #{sansuwu},
+	                       kokugo = #{kokugo},
+	                       adress = #{adress},
+	                       birthday = #{birthday}
+	                    WHERE id = '${id}';
+	]]>
+	</update>
+
+	<insert id="insert" parameterType="jp.csii.entity.StudentEntity">
+	<![CDATA[
+	  INSERT INTO t_student VALUE (#{id},#{name},#{sex},#{classx},#{sansuwu},#{kokugo},#{adress},#{birthday},#{TOUROKUBI},#{KOUSINNBI})
+	]]>
+	</insert>
+</mapper>
